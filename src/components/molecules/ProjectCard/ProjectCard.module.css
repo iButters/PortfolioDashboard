@@ -73,21 +73,21 @@
 .content {
   flex: 1;
   padding: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
   min-height: 0;
-  overflow: hidden;
 }
 
 .backContent {
   padding: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
   height: 100%;
   min-height: 0;
-  overflow: hidden;
 }
 
 .title {
@@ -137,8 +137,10 @@
   color: var(--color-text-tertiary);
   font-size: 0.75rem;
   margin-top: auto;
+  padding-top: var(--spacing-xs);
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  flex-shrink: 0;
 }
 
 .projectCard:hover .flipHint {
