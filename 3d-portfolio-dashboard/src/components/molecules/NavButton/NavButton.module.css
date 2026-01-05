@@ -1,0 +1,79 @@
+.navButton {
+  position: relative;
+  display: inline-block;
+}
+
+.button {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s var(--ease-out);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.button.active {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  border-color: transparent;
+  box-shadow: var(--shadow-primary-glow), var(--shadow-md);
+}
+
+.button.active:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary-glow), var(--shadow-lg);
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent),
+    transparent
+  );
+  border-radius: var(--border-radius-full);
+}
+
+.glow {
+  position: absolute;
+  inset: -4px;
+  background: radial-gradient(
+    circle,
+    var(--color-primary)33 0%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+/* Focus styles for accessibility */
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .button {
+    font-size: 0.875rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}

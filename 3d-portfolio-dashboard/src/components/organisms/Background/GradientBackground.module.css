@@ -1,0 +1,126 @@
+.gradientBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  z-index: -1;
+}
+
+.gradient {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0;
+  will-change: transform, opacity;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.gradient1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #8B5CF6 0%, transparent 70%);
+  top: -10%;
+  left: -10%;
+  animation-name: morphGradient1;
+}
+
+.gradient2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #06B6D4 0%, transparent 70%);
+  top: 50%;
+  right: -10%;
+  animation-name: morphGradient2;
+  animation-delay: 5s;
+}
+
+.gradient3 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #EC4899 0%, transparent 70%);
+  bottom: -10%;
+  left: 50%;
+  animation-name: morphGradient3;
+  animation-delay: 10s;
+}
+
+.animated .gradient {
+  opacity: 0.4;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 0%, rgba(15, 23, 42, 0.3) 100%);
+  pointer-events: none;
+}
+
+@keyframes morphGradient1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translate(30vw, 20vh) scale(1.2);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translate(-10vw, 30vh) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+@keyframes morphGradient2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translate(-20vw, -30vh) scale(1.1);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translate(-40vw, 10vh) scale(0.95);
+    opacity: 0.4;
+  }
+}
+
+@keyframes morphGradient3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translate(-30vw, -20vh) scale(1.15);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translate(20vw, -15vh) scale(0.85);
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 768px) {
+  .gradient1 {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .gradient2 {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .gradient3 {
+    width: 375px;
+    height: 375px;
+  }
+}

@@ -1,0 +1,21 @@
+/* Icon Base Styles */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  
+  /* GPU Acceleration */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Hover Effect */
+.hoverEffect {
+  cursor: pointer;
+}
+
+.hoverEffect:hover {
+  filter: drop-shadow(0 0 8px currentColor);
+}

@@ -1,0 +1,134 @@
+@import '../../../tokens/tokens.css';
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-md) 0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.desktopNav {
+  display: none;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+.mobileMenuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-base);
+}
+
+.mobileMenuButton:hover {
+  background: rgba(var(--color-primary-rgb), 0.1);
+}
+
+.mobileMenuButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Mobile Menu */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  max-width: 80vw;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-left: 1px solid var(--color-border);
+  box-shadow: var(--shadow-2xl);
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.mobileMenuContent {
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.mobileNavItem {
+  width: 100%;
+}
+
+/* Desktop breakpoint */
+@media (min-width: 768px) {
+  .desktopNav {
+    display: flex;
+  }
+
+  .mobileMenuButton {
+    display: none;
+  }
+}
+
+/* Smooth transitions */
+@media (prefers-reduced-motion: no-preference) {
+  .navigation {
+    transition: transform var(--transition-base), opacity var(--transition-base);
+  }
+}
+
+/* Glass effect enhancement */
+@supports (backdrop-filter: blur(20px)) {
+  .navigation {
+    background: rgba(15, 23, 42, 0.7);
+  }
+
+  .mobileMenu {
+    background: rgba(15, 23, 42, 0.95);
+  }
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+  .navigation {
+    background: rgba(15, 23, 42, 0.95);
+  }
+
+  .mobileMenu {
+    background: var(--color-bg-dark);
+  }
+}

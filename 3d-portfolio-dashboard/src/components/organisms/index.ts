@@ -1,0 +1,15 @@
+export { Navigation } from './Navigation';
+export { HeroSection } from './HeroSection';
+export { Background } from './Background';
+export { MetricsGrid } from './MetricsGrid';
+export type { MetricsGridProps, Metric } from './MetricsGrid';
+export { ProjectsGallery } from './ProjectsGallery';
+export type { ProjectsGalleryProps, ProjectCategory } from './ProjectsGallery';
+export { SkillsSection } from './SkillsSection';
+export type { SkillsSectionProps } from './SkillsSection';
+export { TimelineSection } from './TimelineSection';
+export type { TimelineSectionProps } from './TimelineSection';
+export { ContactSection } from './ContactSection';
+export type { ContactSectionProps } from './ContactSection';
+export { CursorGlow } from './CursorGlow';
+export { ConfettiExplosion } from './ConfettiExplosion';

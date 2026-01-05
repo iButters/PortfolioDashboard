@@ -1,0 +1,74 @@
+.techBadge {
+  position: relative;
+  display: inline-block;
+}
+
+.badge {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  backdrop-filter: blur(10px);
+  border: 1px solid;
+  transition: all 0.3s var(--ease-out);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.techBadge:hover .badge {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.text {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.glow {
+  position: absolute;
+  inset: -4px;
+  filter: blur(16px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.techBadge:hover .glow {
+  opacity: 1;
+}
+
+/* Category-specific styles */
+.techBadge[data-category="frontend"]:hover .badge {
+  background: var(--color-primary)22;
+}
+
+.techBadge[data-category="backend"]:hover .badge {
+  background: var(--color-secondary)22;
+}
+
+.techBadge[data-category="design"]:hover .badge {
+  background: var(--color-accent)22;
+}
+
+.techBadge[data-category="other"]:hover .badge {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .badge {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+
+  .icon {
+    width: 12px;
+    height: 12px;
+  }
+}

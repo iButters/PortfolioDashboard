@@ -1,0 +1,17 @@
+.backgroundWrapper {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.backgroundWrapper.transitioning {
+  opacity: 0;
+}
+
+/* Ensure backgrounds are positioned correctly */
+.backgroundWrapper > * {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

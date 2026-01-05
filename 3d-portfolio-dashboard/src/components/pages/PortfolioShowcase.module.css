@@ -1,0 +1,28 @@
+@import '../../tokens/tokens.css';
+
+.portfolioShowcase {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  position: relative;
+}
+
+/* Add spacing between sections */
+.portfolioShowcase > section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Background decorative elements */
+.portfolioShowcase::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}

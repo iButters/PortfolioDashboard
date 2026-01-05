@@ -1,0 +1,268 @@
+@import '@/tokens/tokens.css';
+
+.projectsGallery {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+/* ===========================
+   FILTER SECTION
+=========================== */
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.filterButtons {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.filterButton {
+  position: relative;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.filterButton.active {
+  box-shadow: 
+    0 0 20px rgba(99, 102, 241, 0.4),
+    0 0 40px rgba(99, 102, 241, 0.2);
+}
+
+.filterButton:hover {
+  transform: translateY(-2px);
+}
+
+.filterButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===========================
+   GRID LAYOUT
+=========================== */
+.gridContainer {
+  position: relative;
+  min-height: 400px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  width: 100%;
+  grid-auto-rows: minmax(400px, auto);
+}
+
+/* Grid Items */
+.gridItem {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Featured Items - Bento Box Layout */
+.gridItem.featured {
+  /* Featured cards span 2 columns on larger screens */
+  grid-column: span 2;
+  min-height: 400px;
+}
+
+/* Ensure all grid items have proper dimensions */
+.gridItem:not(.featured) {
+  min-height: 400px;
+}
+
+/* ===========================
+   EMPTY STATE
+=========================== */
+.emptyState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  width: 100%;
+  grid-column: 1 / -1;
+}
+
+.emptyText {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+/* Large Screens (> 1400px) */
+@media (min-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gridItem.featured {
+    grid-column: span 2;
+  }
+}
+
+/* Desktop (1024px - 1400px) */
+@media (min-width: 1025px) and (max-width: 1399px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gridItem.featured {
+    grid-column: span 2;
+  }
+}
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .projectsGallery {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .gridItem.featured {
+    grid-column: span 1;
+    min-height: 380px;
+  }
+
+  .gridItem:not(.featured) {
+    min-height: 380px;
+  }
+
+  .filterButtons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+  .projectsGallery {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .filterContainer {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .filterButtons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    gap: var(--spacing-xs);
+  }
+
+  .filterButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    grid-auto-rows: auto;
+  }
+
+  .gridItem.featured {
+    grid-column: span 1;
+    min-height: 350px;
+  }
+
+  .gridItem:not(.featured) {
+    min-height: 350px;
+  }
+
+  .emptyState {
+    min-height: 300px;
+  }
+}
+
+/* Small Mobile (< 480px) */
+@media (max-width: 480px) {
+  .projectsGallery {
+    padding: var(--spacing-sm);
+  }
+
+  .filterButtons {
+    padding: var(--spacing-2xs);
+  }
+
+  .grid {
+    gap: var(--spacing-sm);
+  }
+
+  .gridItem {
+    min-height: 240px;
+  }
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+/* GPU Acceleration for better performance */
+.gridItem {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Smooth transitions for grid layout changes */
+.grid {
+  transition: all 0.3s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+}
+
+/* Hover effects for better interactivity */
+@media (hover: hover) {
+  .filterButton:not(.active):hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Focus states for accessibility */
+.filterButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-xl);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .filterButton,
+  .gridItem,
+  .grid {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .filterButtons {
+    border: 2px solid currentColor;
+  }
+
+  .filterButton.active {
+    outline: 2px solid currentColor;
+  }
+}

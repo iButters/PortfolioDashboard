@@ -1,0 +1,37 @@
+.showcase {
+  position: relative;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-2xl);
+  }
+}
+
+.placeholderSection {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-4xl) 0;
+}
+
+.placeholderSection h2 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.placeholderSection p {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+}

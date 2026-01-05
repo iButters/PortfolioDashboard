@@ -1,0 +1,313 @@
+@import '../../../tokens/tokens.css';
+
+.contactSection {
+  padding: var(--spacing-16) var(--spacing-6);
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.5) 0%, rgba(17, 24, 39, 0.9) 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card Wrapper */
+.cardWrapper {
+  max-width: 600px;
+  width: 100%;
+}
+
+.contactCard {
+  padding: var(--spacing-3xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contactCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: 
+    0 25px 60px rgba(139, 92, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Title & Subtitle */
+.title {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-4);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-3xl);
+  line-height: 1.6;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+}
+
+/* Availability Status */
+.statusWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.statusBadge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.pulseDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-success);
+  position: relative;
+  animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulseDot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--color-success);
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+}
+
+/* Email Display */
+.emailWrapper {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.emailLabel {
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+  margin-bottom: var(--spacing-3);
+  opacity: 0.8;
+}
+
+.emailLink {
+  display: inline-block;
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: var(--spacing-2) 0;
+}
+
+.emailLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.emailLink:hover {
+  color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+
+.emailLink:hover::after {
+  width: 100%;
+}
+
+.emailLink:active {
+  transform: translateY(0);
+}
+
+/* Social Section */
+.socialSection {
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-2xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.socialLabel {
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+  margin-bottom: var(--spacing-4);
+  opacity: 0.8;
+}
+
+.socialButtons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.socialButton {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.socialButton:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.socialButton:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Decorative Glow Effect */
+.glowEffect {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.15) 0%,
+    transparent 70%
+  );
+  animation: glow-rotate 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes glow-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactSection {
+    padding: var(--spacing-12) var(--spacing-4);
+    min-height: auto;
+  }
+
+  .contactCard {
+    padding: var(--spacing-8);
+  }
+
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .socialButtons {
+    gap: var(--spacing-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .contactCard {
+    padding: var(--spacing-6);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .contactCard {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .emailLink {
+    font-size: var(--font-size-xl);
+    word-break: break-all;
+  }
+
+  .socialButtons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .pulseDot,
+  .pulseDot::before,
+  .glowEffect,
+  .contactCard,
+  .socialButton,
+  .emailLink {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Focus States */
+.emailLink:focus-visible,
+.socialButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  outline-style: solid;
+  border-radius: var(--border-radius-sm);
+}

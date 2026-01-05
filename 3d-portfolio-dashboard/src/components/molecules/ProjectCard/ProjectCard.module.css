@@ -1,0 +1,194 @@
+.projectCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  cursor: pointer;
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.projectCard:hover .card {
+  box-shadow: var(--shadow-primary-glow), var(--shadow-xl);
+}
+
+.featuredBadge {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 10;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  min-height: 180px;
+  max-height: 200px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  transition: opacity 0.3s ease;
+}
+
+.projectCard:hover .imageOverlay {
+  opacity: 0.7;
+}
+
+.content {
+  flex: 1;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.backContent {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.title {
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.description {
+  color: var(--color-text-secondary);
+  flex: 1;
+  overflow-y: auto;
+  line-height: 1.6;
+  min-height: 0;
+  max-height: 200px;
+  padding-right: var(--spacing-xs);
+}
+
+.tags,
+.allTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  flex-shrink: 0;
+}
+
+.tags {
+  min-height: 0;
+}
+
+.allTags {
+  max-height: 100px;
+  overflow-y: auto;
+  min-height: 0;
+  padding-right: var(--spacing-xs);
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: auto;
+}
+
+.flipHint {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-text-tertiary);
+  font-size: 0.75rem;
+  margin-top: auto;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.projectCard:hover .flipHint {
+  opacity: 1;
+}
+
+.flipHint svg {
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scrollbar styles for description and tags */
+.description::-webkit-scrollbar,
+.allTags::-webkit-scrollbar {
+  width: 4px;
+}
+
+.description::-webkit-scrollbar-track,
+.allTags::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.description::-webkit-scrollbar-thumb,
+.allTags::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .projectCard {
+    min-height: 100%;
+  }
+
+  .imageWrapper {
+    height: 150px;
+    min-height: 150px;
+    max-height: 160px;
+  }
+
+  .content,
+  .backContent {
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+}
